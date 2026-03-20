@@ -1,0 +1,60 @@
+import java.util.Scanner;
+
+public class CharStringProgram {
+    public static int countVowels(String text) {
+        int count = 0;
+
+        //incase uppercase
+        text = text.toLowerCase();
+
+
+        //for loop for vowels
+        for (int i = 0; i < text.length(); i++) {
+            char ch = text.charAt(i);
+
+            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+                count++;
+            }
+        }
+
+        return count; //return number of vowels 
+    }
+
+
+    //string reverse using for loop 
+    public static String reverseString(String text) {
+        String reversed = "";
+
+        for (int i = text.length() - 1; i >= 0; i--) {
+            reversed += text.charAt(i);
+        }
+
+        return reversed;
+    }
+
+
+
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("enter a string: ");
+        String text = input.nextLine();
+
+        System.out.println("length of string: " + text.length());
+        System.out.println("reversed string: " + reverseString(text));
+        System.out.println("number of vowels: " + countVowels(text));
+
+        System.out.print("enter another string to compare: ");
+        String secondText = input.nextLine();
+
+        //compare strings
+        if (text.equals(secondText)) {
+            System.out.println("The strings are equal.");
+        } else {
+            System.out.println("The strings are not equal.");
+        }
+
+        input.close();
+    }
+}
